@@ -17,26 +17,26 @@ const freelancers = [
 ];
 
 const inLine = [{ name: "Carol", occupation: "Programmer", price: 70, render: false },
-{ name: "John", occupation: "Software Engineer", price: 19, render: false },
-{ name: "Emily", occupation: "Graphic Designer", price: 40, render: false },
-{ name: "Michael", occupation: "Teacher", price: 38, render: false },
-{ name: "Sarah", occupation: "Data Analyst", price: 33, render: false },
-{ name: "David", occupation: "Chef", price: 38, render: false },
-{ name: "Olivia", occupation: "Marketing Specialist", price: 20, render: false },
-{ name: "William", occupation: "Accountant", price: 73, render: false },
-{ name: "Ava", occupation: "Nurse", price: 81, render: false },
-{ name: "James", occupation: "Artist", price: 90, render: false },
-{ name: "Sophia", occupation: "Doctor", price: 70, render: false },
-{ name: "Benjamin", occupation: "Mechanical Engineer", price: 44, render: false },
-{ name: "Mia", occupation: "Lawyer", price: 26, render: false },
-{ name: "Elijah", occupation: "Architect", price: 83, render: false },
-{ name: "Charlotte", occupation: "Social Worker", price: 58, render: false },
-{ name: "Alexander", occupation: "Financial Analyst", price: 79, render: false },
-{ name: "Emma", occupation: "Product Manager", price: 66, render: false },
-{ name: "Daniel", occupation: "Photographer", price: 18, render: false },
-{ name: "Grace", occupation: "Teacher", price: 27, render: false },
-{ name: "Henry", occupation: "Dentist", price: 53, render: false },
-{ name: "Lily", occupation: "Software Developer", price: 65, render: false }
+{ name: "John", occupation: "Software Engineer", render: false },
+{ name: "Emily", occupation: "Graphic Designer", render: false },
+{ name: "Michael", occupation: "Teacher", render: false },
+{ name: "Sarah", occupation: "Data Analyst", render: false },
+{ name: "David", occupation: "Chef", render: false },
+{ name: "Olivia", occupation: "Marketing Specialist", render: false },
+{ name: "William", occupation: "Accountant", render: false },
+{ name: "Ava", occupation: "Nurse", render: false },
+{ name: "James", occupation: "Artist", render: false },
+{ name: "Sophia", occupation: "Doctor", render: false },
+{ name: "Benjamin", occupation: "Mechanical Engineer", render: false },
+{ name: "Mia", occupation: "Lawyer", render: false },
+{ name: "Elijah", occupation: "Architect", render: false },
+{ name: "Charlotte", occupation: "Social Worker", render: false },
+{ name: "Alexander", occupation: "Financial Analyst", render: false },
+{ name: "Emma", occupation: "Product Manager", render: false },
+{ name: "Daniel", occupation: "Photographer", render: false },
+{ name: "Grace", occupation: "Teacher", render: false },
+{ name: "Henry", occupation: "Dentist", render: false },
+{ name: "Lily", occupation: "Software Developer", render: false }
 ]
 
 
@@ -57,6 +57,10 @@ function render() {
         // for each freelancer, create a table row
         freelancers.forEach(fl => {
                 if (!fl.render) {
+                        // create random number between 10-100 as price
+                        if (!fl.hasOwnProperty("price")) {
+                                fl.price = Math.floor(Math.random() * (100 - 10) + 10);
+                        }
                         const tablerow = document.createElement("tr");
                         for (let key in fl) {
                                 if (key !== "render") {
